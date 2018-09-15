@@ -27,7 +27,7 @@ public class Main {
         while (choix != 0) {
             do {
                 System.out.println("Entrez votre choix (1 à 3): ");
-                choix = sc.nextInt();
+                choix = Integer.parseInt(sc.nextLine());
                 if(choix <1 || choix>3) {
                     System.out.println("***Option invalide!***");
                 }
@@ -40,9 +40,6 @@ public class Main {
                         reseau = chargerReseau(file);
                         System.out.println("Le réseau a été chargé !");
                         System.out.println("Affichage du réseau: " + reseau.getNomReseau());  //Substitution de Graphe.toString() ici
-                        for (int x = 0; x <reseau.getSommets().size();x++){
-                            System.out.println("- " + reseau.getSommets().get(x).getNomVille());
-                        }
                         break;
 
                     case 2: //Trouver le plus court chemin avec Dijkstra.
@@ -114,7 +111,6 @@ public class Main {
 
                 valeurRetour.addSommet(new Sommet(nomVille,latitude,longitude));
 
-                //TODO Ajouter ici la ville (sommet) au graphe valeurRetour
             }
 
             //Récupère les trajets, durées et coûts
@@ -125,10 +121,9 @@ public class Main {
                 double duree = Double.parseDouble(sc.nextLine());
                 double cout = Double.parseDouble(sc.nextLine());
 
-                valeurRetour.getSommet(nomVilleSource).setListeAdjacence().add(new Edge(nomVilleDest,duree,cout,valeurRetour));
+                valeurRetour.getSommet(nomVilleSource).ajouterArc(nomVilleDest,duree,cout,valeurRetour);
 
             }
-                //TODO Ajouter ici le trajet (arc) au graphe valeurRetour
 
             //Fermeture du fichier
             sc.close();

@@ -12,5 +12,10 @@ public class Chemin {
     float coutTotal;			// Coût total en dollars du chemin entre la ville de départ et la ville de destination
     boolean reussi;			// Un booléen qui vaut true si chemin a été trouvé sinon false
 
+
+
+
+
+
 }
 

@@ -64,7 +64,7 @@ Paris
 6.27
 723.96
 Montreal
-New_York
+New York
 1.91
 402.78
 Paris
@@ -72,7 +72,7 @@ Montreal
 6.32
 892.39
 Quebec
-La_Havane
+La Havane
 3.34
 492.21
 Montreal
