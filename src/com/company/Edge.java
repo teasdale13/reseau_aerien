@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.LinkedList;
-
 public class Edge {
 
     private Sommet destination;
@@ -41,9 +39,10 @@ public class Edge {
         this.cout = cout;
     }
 
-    public Edge(String destination, double duree, double cout, Graphe reseau){
+    public Edge(String source, String destination, double duree, double cout, Graphe reseau){
         this.setCout(cout);
         this.setDuree(duree);
+        this.setSource(reseau.getSommet(source));
         this.setDestination(reseau.getSommet(destination));
 
     }

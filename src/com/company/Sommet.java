@@ -53,7 +53,6 @@ public class Sommet {
         this.listeAdjacence = listeAdjacence;
     }
 
-
     public String getNomVille() {
         return nomVille;
     }
@@ -78,20 +77,17 @@ public class Sommet {
         this.longitude = longitude;
     }
 
+    //Constructeur de Sommet
     public Sommet(String nomVille, double latitude, double longitude){
         this.setNomVille(nomVille);
         this.setLatitude(latitude);
         this.setLongitude(longitude);
-        this.setPoidsCout(Double.POSITIVE_INFINITY);
-        this.setPoidsDuree(Double.POSITIVE_INFINITY);
         listeAdjacence = new LinkedList<Edge>();
-        this.setEstConnu(false);
     }
 
     //Ajouter Arc
-    public void ajouterArc(String destination, double duree, double cout, Graphe reseau){
-
-        Edge nouvelArc = new Edge(destination,duree,cout,reseau);
+    public void ajouterArc(String source, String destination, double duree, double cout, Graphe reseau){
+        Edge nouvelArc = new Edge(source, destination,duree,cout,reseau);
         this.listeAdjacence.add(nouvelArc);
     }
 

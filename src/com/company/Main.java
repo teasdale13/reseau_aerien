@@ -26,12 +26,16 @@ public class Main {
 
         while (choix != 0) {
             do {
-                System.out.println("Entrez votre choix (1 à 3): ");
-                choix = Integer.parseInt(sc.nextLine());
-                if(choix <1 || choix>3) {
-                    System.out.println("***Option invalide!***");
+                try{
+                    choix = Integer.parseInt(sc.nextLine());
+                    if(choix <1 || choix>3) {
+                        System.out.println("***Option invalide!***");
+                    }
+                } catch(Exception ex){
+                    choix = 0; //Pour forcer la boucle à recommencer
                 }
-            }while(choix <1 || choix>3);
+            }
+            while(choix <1 || choix>3);
 
             try {
                 switch (choix) {
@@ -85,8 +89,7 @@ public class Main {
             }
         }
     }
-
-
+    
     // Charger un réseau à partir d'un fichier texte en entrée.
     // Construit un réseau routier à partir d'une liste de villes ainsi que leurs liens.
     public static Graphe chargerReseau(File file) {
@@ -97,7 +100,6 @@ public class Main {
             Scanner sc = new Scanner(file);
 
             //Nom du réseau
-            //valeurRetour.setNomReseau();
             valeurRetour.setNomReseau(sc.nextLine());
 
             //Obtient le nombre de villes que le code doit s'attendre à traiter
@@ -121,7 +123,7 @@ public class Main {
                 double duree = Double.parseDouble(sc.nextLine());
                 double cout = Double.parseDouble(sc.nextLine());
 
-                valeurRetour.getSommet(nomVilleSource).ajouterArc(nomVilleDest,duree,cout,valeurRetour);
+                valeurRetour.getSommet(nomVilleSource).ajouterArc(nomVilleSource,nomVilleDest,duree,cout,valeurRetour);
 
             }
 
