@@ -56,6 +56,7 @@ public class Graphe {
             }
         }else {
             cheminOptimal.reussi = false;
+            return cheminOptimal;
         }
 
         cheminOptimal.listeVilles.add(sommet.getNomVille());
